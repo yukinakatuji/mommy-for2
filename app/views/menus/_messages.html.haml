@@ -1,0 +1,25 @@
+.chat-main
+  .groups-info
+    .groups-user
+      .groups-user-box
+        .groups-user-top
+          = @group.name
+        .groups-user-bottom
+          Member:
+          -# - @group.users.each do |user|
+            =user.name 
+      -# .groups-user-edit
+      -#   = link_to edit_group_path(@group) do
+      -#     Edit
+  .messages
+    = render @messages
+
+  -# .chat-main__form
+  -#   = form_for [@group, @message] do |f|
+  -#     .chat-main__form__table
+  -#       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+  -#       = f.label :image, class: "choose-image" do
+  -#         = icon('far', 'image', class: 'icon')
+  -#         =f.file_field :image, class: 'hidden'
+  -#     .chat-main__form__send-btn
+  -#       = f.submit 'Send', class: 'form__submit'
